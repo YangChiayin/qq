@@ -1,0 +1,51 @@
+<head>
+    <title>View All &middot; Final Exam</title>
+    <%- include("../shared/head") %>
+</head>
+<body>
+    <div class="container">
+        <h1>View All</h1>
+
+        <p><a class="link-primary" href="/">New</a></p>
+
+        <% if (all.length === 0) { %>
+            <div class="alert alert-info" role="alert">
+                Create a new entry
+            </div> 
+        <% } else { %>
+             <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Phone</td>
+                        <td>Mango Juices</td>
+                        <td>Berry Juices</td>
+                        <td>Apple Juices</td>
+                        <td>Sub Total</td>
+                        <td>Tax</td>
+                        <td>Total</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- TODO: Complete the table -->
+                    <% all.forEach(order => { %>
+                        <tr>
+                            <td><%= order.userName %></td>
+                            <td><%= order.userPhone %></td>
+                            <td><%= order.mangoJuicesQuantity %></td>
+                            <td><%= order.berryJuicesQuantity %></td>
+                            <td><%= order.appleJuicesQuantity %></td>
+                            <td>$ <%= order.subtotal.toFixed(2)  %></td>
+                            <td>$ <%= order.tax.toFixed(2)  %></td>
+                            <td>$ <%= order.total.toFixed(2)  %></td>
+                          </tr>
+                    <% }) %>
+                </tbody>
+
+             </table>
+        <% } %>
+
+        <%- include("../shared/footer") %>
+    </div>
+    <%- include("../shared/scripts") %>
+</body>

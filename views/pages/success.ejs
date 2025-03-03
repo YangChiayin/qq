@@ -1,0 +1,46 @@
+<head>
+    <title>Success &middot; Final Exam</title>
+    <%- include("../shared/head") %>
+</head>
+<body>
+    <div class="container">
+        <h1>Success</h1>
+
+        <p><a class="link-primary" href="/">New</a></p>
+        <p><a class="link-primary" href="/all">View All</a></p>
+
+        <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Phone</td>
+                <td>Total number of Mango Juices</td>
+                <td>Total number of Berry Juices</td>
+                <td>Total number of Apple Juices</td>
+                <td>Subtotal</td>
+                <td>Tax</td>
+                <td>Total cost</td>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- TODO: Complete the table -->
+            <td><%= userName %></td>
+            <td><%= userPhone %></td>
+
+            <% products.forEach(product=> { %>
+                <% if (product.quantity !== 0) { %>
+                    <td><%= product.quantity %></td>
+                <% } %>
+            <% }) %>
+
+            <td><%= subtotal.toFixed(2) %></td>
+            <td><%= tax.toFixed(2) %></td>
+            <td><%= total.toFixed(2) %></td>
+        </tbody>
+
+        </table>
+
+        <%- include("../shared/footer") %>
+    </div>
+    <%- include("../shared/scripts") %>
+</body>

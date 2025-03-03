@@ -1,0 +1,55 @@
+<head>
+    <title>Form &middot; Final Exam</title>
+    <%- include("../shared/head") %>
+</head>
+<body>
+    <div class="container">
+        <h1>Form</h1>
+
+        <p><a class="link-primary" href="/login">Login</a></p>
+        <p><a class="link-primary" href="/all">View All</a></p>
+
+        <% if (typeof errors !== "undefined") { %>
+            <% errors.forEach(error => { %>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <span><%= error.msg %></span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <% }) %>
+        <% } %>
+
+        <!-- TODO: Create a form -->
+        <form method="post" action="/">
+            <div class="mb-3">
+                <label class="form-lable">Name*:</label>
+                <input class="form-control" type="text" name="userName" placeholder="Name" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-lable">Phone*:</label>
+                <input class="form-control" type="text" name="userPhone" placeholder="xxx-xxx-xxxx" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-lable">Mango Juices $<%= mangoJuicesPrice %></label>
+                <input class="form-control" type="text" name="mangoJuicesQuantity" placeholder="10" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-lable">Berry Juices $<%= berryJuicesPrice %></label>
+                <input class="form-control" type="text" name="berryJuicesQuantity" placeholder="10" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-lable">Apple Juices $<%= appleJuicesPrice %></label>
+                <input class="form-control" type="text" name="appleJuicesQuantity" placeholder="10" />
+            </div>
+
+            <input class="btn btn-primary" type="submit" value="Order" />
+            <input class="btn btn-secondary" type="reset" value="Clear" />
+            
+        </form>
+        <%- include("../shared/footer") %>
+    </div>
+    <%- include("../shared/scripts") %>
+</body>

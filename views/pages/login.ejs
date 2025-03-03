@@ -1,0 +1,36 @@
+<head>
+    <title>Login &middot; Final Exam</title>
+    <%- include("../shared/head") %>
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+
+        <p><a class="link-primary" href="/">New</a></p>
+
+        <% if (typeof errors !== "undefined") { %>
+            <% errors.forEach(error => { %>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <span><%= error.msg %></span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <% }) %>
+        <% } %>
+
+        <form method="post" action="/login">
+            <div class="mb-3">
+                <label class="form-label" for="username">Username</label>
+                <input class="form-control" type="text" name="username" id="username" placeholder="admin" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="password">Password</label>
+                <input class="form-control" type="text" name="password" id="password" placeholder="admin" />
+            </div>
+
+            <input class="btn btn-primary" type="submit" value="Sign in" />
+        </form>
+        <%- include("../shared/footer") %>
+    </div>
+    <%- include("../shared/scripts") %>
+</body>
